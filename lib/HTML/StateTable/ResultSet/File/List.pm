@@ -1,7 +1,7 @@
 package HTML::StateTable::ResultSet::File::List;
 
 use HTML::StateTable::Constants qw( FALSE TRUE );
-use HTML::StateTable::Types     qw( Bool );
+use HTML::StateTable::Types     qw( HashRef Bool Str );
 use Moo;
 
 extends 'HTML::StateTable::ResultSet::File';
@@ -33,6 +33,22 @@ Defines the following attributes;
 =cut
 
 has 'allow_directories' => is => 'ro', isa => Bool, default => FALSE;
+
+=item extensions
+
+=cut
+
+has 'extensions' => is => 'ro', isa => Str;
+
+has '_extensions' =>
+   is      => 'lazy',
+   isa     => HashRef[Str],
+   default => sub {
+      my $self = shift;
+
+      return $self->extensions
+         ? { map { $_ => TRUE } split m{ \| }mx, $self->extensions } : {};
+   };
 
 =item recurse
 
@@ -67,6 +83,8 @@ sub build_results {
 
       return if !$self->show_dot_files && $path->basename =~ m{ \A \. }mx;
       return if $path->is_dir && !$self->allow_directories;
+      return if !$path->is_dir && $self->extensions
+         && !exists $self->_extensions->{$path->extension};
 
       push @{$results}, $self->result_class->new(
          directory => $self->directory,

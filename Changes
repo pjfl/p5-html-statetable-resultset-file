@@ -1,5 +1,7 @@
 Revision history for HTML::StateTable::ResultSet::File
 
+          - Added support for extensions to directory List
+
 0.1.1     2025-09-02 22:41:21
           - Added project files to master branch
 

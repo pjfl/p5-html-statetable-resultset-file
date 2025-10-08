@@ -65,6 +65,8 @@ Defines the following methods;
 
 =item count
 
+Returns the integer count of the number of results (rows) in the result set
+
 =cut
 
 sub count {
@@ -79,6 +81,8 @@ sub count {
 
 =item read
 
+Returns an array reference of result objects
+
 =cut
 
 sub read {
@@ -92,6 +96,7 @@ sub read {
    return $self->_read_partial($key);
 }
 
+# Private methods
 sub _build_index {
    my $self     = shift;
    my $path     = $self->resultset->path->assert_open('r');
