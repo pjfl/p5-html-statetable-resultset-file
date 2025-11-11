@@ -1,5 +1,6 @@
 Revision history for HTML::StateTable::ResultSet::File
 
+          - Weakened resultset in Column
           - Weakened Cache resultset attribute
           - Added support for extensions to directory List
 

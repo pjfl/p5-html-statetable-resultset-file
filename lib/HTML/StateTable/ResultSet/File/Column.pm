@@ -36,7 +36,11 @@ has 'name' => is => 'ro', isa => Str, required => TRUE;
 
 =cut
 
-has 'resultset' => is => 'ro', isa => ResultSet, required => TRUE;
+has 'resultset' =>
+   is       => 'ro',
+   isa      => ResultSet,
+   required => TRUE,
+   weak_ref => TRUE;
 
 =back
 
