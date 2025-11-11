@@ -53,7 +53,8 @@ has 'redis' => is => 'ro', isa => Object, required => TRUE;
 has 'resultset' =>
    is       => 'ro',
    isa      => class_type('HTML::StateTable::ResultSet::File'),
-   required => TRUE;
+   required => TRUE,
+   weak_ref => TRUE;
 
 =back
 
