@@ -1,7 +1,7 @@
 package HTML::StateTable::ResultSet::File;
 
 use 5.010001;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 5 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 6 $ =~ /\d+/gmx );
 
 use HTML::StateTable::Constants qw( COL_INFO_TYPE_ATTR FALSE TRUE );
 use HTML::StateTable::Types     qw( ArrayRef Bool Int LoadableClass
