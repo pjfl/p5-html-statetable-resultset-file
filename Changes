@@ -1,5 +1,6 @@
 Revision history for HTML::StateTable::ResultSet::File
 
+          - Rearranged file/directory attribute locations
           - Use a weakened table reference when instantiating results
           - Weakened resultset in Column
           - Weakened Cache resultset attribute

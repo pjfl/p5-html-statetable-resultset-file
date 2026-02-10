@@ -1,7 +1,7 @@
 package HTML::StateTable::ResultSet::File::View;
 
 use HTML::StateTable::Constants qw( DOT FALSE TRUE );
-use HTML::StateTable::Types     qw( HashRef Object Str );
+use HTML::StateTable::Types     qw( Object );
 use File::DataClass::Types      qw( File );
 use Type::Utils                 qw( class_type );
 use HTML::StateTable::ResultSet::File::Cache;
@@ -46,19 +46,11 @@ has 'cache' =>
       );
    };
 
-has 'file' => is => 'ro', isa => Str, required => TRUE;
-
 =item path
 
 =cut
 
-has 'path' =>
-   is       => 'lazy',
-   isa      => File,
-   init_arg => undef,
-   default  => sub {
-      my $self = shift; return $self->directory->catfile($self->file);
-   };
+has 'path' => is => 'ro', isa => File, required => TRUE;
 
 =item redis
 

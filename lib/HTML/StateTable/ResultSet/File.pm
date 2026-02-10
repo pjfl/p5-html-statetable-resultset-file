@@ -1,12 +1,11 @@
 package HTML::StateTable::ResultSet::File;
 
 use 5.010001;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 6 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 7 $ =~ /\d+/gmx );
 
 use HTML::StateTable::Constants qw( COL_INFO_TYPE_ATTR FALSE TRUE );
 use HTML::StateTable::Types     qw( ArrayRef Bool Int LoadableClass
                                     ResultRole Str Table Undef );
-use File::DataClass::Types      qw( Directory );
 use Ref::Util                   qw( is_arrayref is_coderef is_hashref );
 use HTML::StateTable::ResultSet::File::Column;
 use Data::Page;
@@ -63,15 +62,6 @@ A string which defaults to C<me>. Needed by L<HTML::StateTable>
 =cut
 
 has 'current_source_alias' => is => 'ro', isa => Str, default => 'me';
-
-=item directory
-
-An instance of L<File::DataClass::IO> which represents the directory that
-contains the files. Required
-
-=cut
-
-has 'directory' => is => 'lazy', isa => Directory, required => TRUE;
 
 =item distinct_column
 

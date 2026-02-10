@@ -2,6 +2,7 @@ package HTML::StateTable::ResultSet::File::List;
 
 use HTML::StateTable::Constants qw( FALSE TRUE );
 use HTML::StateTable::Types     qw( HashRef Bool Str );
+use File::DataClass::Types      qw( Directory );
 use Moo;
 
 extends 'HTML::StateTable::ResultSet::File';
@@ -33,6 +34,15 @@ Defines the following attributes;
 =cut
 
 has 'allow_directories' => is => 'ro', isa => Bool, default => FALSE;
+
+=item directory
+
+An instance of L<File::DataClass::IO> which represents the directory that
+contains the files. Required
+
+=cut
+
+has 'directory' => is => 'lazy', isa => Directory, required => TRUE;
 
 =item extensions
 
