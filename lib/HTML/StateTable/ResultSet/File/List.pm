@@ -91,6 +91,7 @@ sub build_results {
    $self->directory->visit(sub {
       my $path = shift;
 
+      return if $path->is_link;
       return if !$self->show_dot_files && $path->basename =~ m{ \A \. }mx;
       return if $path->is_dir && !$self->allow_directories;
       return if !$path->is_dir && $self->extensions
