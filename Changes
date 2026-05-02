@@ -1,5 +1,6 @@
 Revision history for HTML::StateTable::ResultSet::File
 
+          - Adds follow links attribute to List class
           - Exclude symlinks from listings
           - Rearranged file/directory attribute locations
           - Use a weakened table reference when instantiating results
